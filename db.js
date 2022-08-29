@@ -7,4 +7,8 @@ const redis = new Redis({
         timeout: 200
 });
 
-module.exports = redis;
+module.exports = {
+  get: async (key) =>
+    JSON.parse(await redis.get(key))
+  set: (key, value) => redis.set(key, JSON.stringify(value))
+}
