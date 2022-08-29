@@ -10,7 +10,15 @@ const client = new Client({
 const config = require('./config.json');
 const fs = require('fs');
 const token = process.env['token'];
-const Database = require("@replit/database");
+
+const Redis = require("ioredis");
+const redis = new Redis({
+	port: 6379, // Redis port
+	host: "es-noram.redis.cache.windows.net", // Redis host
+	password: "",
+	timeout: 200
+});
+
 const wait = require('node:timers/promises').setTimeout;
 
 function creatCommand(config) {
