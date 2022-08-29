@@ -19,8 +19,7 @@ const {
 	SelectMenuBuilder
 } = require('discord.js');
 
-const Database = require("@replit/database");
-const db = new Database();
+const db = require("ioredis");
 
 async function handleAudioResource(url) {
 	return createAudioResource(await ytdl(url, {
