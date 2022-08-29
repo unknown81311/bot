@@ -13,5 +13,9 @@ module.exports = {
         console.log(data,typeof data);
         return data ? JSON.parse(data) : undefined;
   },
-  set: async (key, value) => await redis.set(key, JSON.stringify(value))
+  set: async (key, value) => {
+          const data = JSON.stringify(value)
+          console.log(data,typeof data)
+          await redis.set(key, data)
+  }
 }
