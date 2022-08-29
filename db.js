@@ -10,5 +10,5 @@ const redis = new Redis({
 module.exports = {
   get: async (key) =>
     JSON.parse(await redis.get(key)),
-  set: (key, value) => redis.set(key, JSON.stringify(value))
+  set: async (key, value) => await redis.set(key, JSON.stringify(value))
 }
