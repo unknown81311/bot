@@ -15,7 +15,7 @@ const Redis = require("ioredis");
 const redis = new Redis({
 	port: 6379, // Redis port
 	host: "es-noram.redis.cache.windows.net", // Redis host
-	password: "",
+	password: process.env['password'],
 	timeout: 200
 });
 
