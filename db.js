@@ -8,7 +8,9 @@ const redis = new Redis({
 });
 
 module.exports = {
-  get: async (key) =>
-    JSON.parse(await redis.get(key)),
+  get: async (key) =>{
+        const data = await redis.get(key)
+        return data ? JSON.parse(data) : undefined
+  },
   set: async (key, value) => await redis.set(key, JSON.stringify(value))
 }
