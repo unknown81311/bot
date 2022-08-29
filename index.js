@@ -79,5 +79,4 @@ client.on('interactionCreate', async interaction => {
 	}
 });
 
-console.log(process.env['token'].split('').map(val => '*').join(''));
 client.login(process.env['token']).catch(e=>console.error(e));
